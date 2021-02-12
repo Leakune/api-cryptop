@@ -6,6 +6,7 @@
         "PRICE_EUR": 33432.35,
         "IMAGEURL": "https://cryptocompare.com/media/19633/btc.png"
         "COMMENTS": [
+            "1"
         ]
     },
     {
@@ -15,6 +16,7 @@
         "PRICE_EUR": 1401.33,
         "IMAGEURL": "https://cryptocompare.com/media/20646/eth_logo.png"
         "COMMENTS": [
+            "2"
         ]
     },
     {
@@ -24,6 +26,7 @@
         "PRICE_EUR": 0.0417904375,
         "IMAGEURL": "https://cryptocompare.com/media/19684/doge.png"
         "COMMENTS": [
+            "3"
         ]
     }
 ]
