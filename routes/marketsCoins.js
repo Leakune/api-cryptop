@@ -47,7 +47,7 @@ const marketRoutes = (app, fs) => {
   // UPDATE
   app.put('/marketsCoins/:id', (req, res) => {
     readFile(data => {
-      const found = data.find(market => market.id == req.params.id);
+      const found = data.find(market => market.ID == req.params.id);
       if(!found) {
         return res.status(404).end();
       }
@@ -60,9 +60,9 @@ const marketRoutes = (app, fs) => {
   
   // CREATE
   app.post('/marketsCoins', (req, res) => {
-    if(req.body.name === undefined ||
-      req.body.intensity === undefined ||
-      req.body.price === undefined) {
+    if(req.body.NAME === undefined ||
+      req.body.PRICE_USD === undefined ||
+      req.body.PRICE_EUR === undefined) {
         return res.status(400).end();
     }
     readFile(data => {
@@ -78,7 +78,7 @@ const marketRoutes = (app, fs) => {
   app.delete('/marketsCoins/:id', (req, res) => {
     readFile(data => {
       const deleteId = parseInt(req.params.id);
-      const foundIndex = data.findIndex((market) => market.id === deleteId);
+      const foundIndex = data.findIndex((market) => market.ID === deleteId);
       if(foundIndex === -1) {
         return res.status(404).end();
       }
