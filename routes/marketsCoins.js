@@ -70,13 +70,8 @@ const marketRoutes = (app, fs) => {
         "ID" : ++id,
         ...req.body
       });
-      writeFile(JSON.stringify(data, null, 2), () => {
-        res.status(200).send('new user added');
-      });
+      res.status(201).end();
     }, true);
-      
-    //   res.status(201).end();
-    // }, true);
   });
 
   // DELETE
