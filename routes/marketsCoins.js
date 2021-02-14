@@ -71,7 +71,7 @@ const marketRoutes = (app, fs) => {
         ...req.body
       });
       writeFile(JSON.stringify(data, null, 2), () => {
-        res.status(200).send('new market added');
+        res.status(201).send('new market added');
     });
     }, true);
   });
