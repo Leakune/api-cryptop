@@ -122,7 +122,7 @@ const marketRoutes = (app, fs) => {
       }
       data.splice(foundIndex, 1);
       writeFile(JSON.stringify(data, null, 2), () => {
-        res.status(204).send(`users id:${userId} removed`);
+        res.status(204).send("market removed");
       });
     }, true);
   });
