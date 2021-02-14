@@ -68,7 +68,11 @@ const marketRoutes = (app, fs) => {
     readFile(data => {
       data.push({
         "ID" : ++id,
-        ...req.body
+        "NAME" : req.body.NAME,
+        "PRICE_USD" : req.body.PRICE_USD,
+        "PRICE_EUR" : req.body.PRICE_EUR,
+        "IMAGEURL" : req.body.IMAGEURL,
+        "COMMENTS" : req.body.COMMENTS
       });
       writeFile(JSON.stringify(data, null, 2), () => {
         res.status(201).send('new market added');
