@@ -45,34 +45,34 @@ const marketRoutes = (app, fs) => {
   });
 
   // UPDATE
-  app.put('/marketsCoins/:id', (req, res) => {
-    if(req.body.ID === undefined ||
-      req.body.NAME === undefined ||
-      req.body.PRICE_USD === undefined ||
-      req.body.PRICE_EUR === undefined ||
-      req.body.IMAGEURL === undefined) {
-        return res.status(400).end();
-    }
-    readFile(data => {
-      const found = data.find(market => market.ID == req.params.id);
-      if(!found) {
-        return res.status(404).end();
-      }
-      //TODO test data[found]
-      // const userId = req.params["id"];
-      // data[userId] = req.body;
-      data.found.ID = req.body.ID,
-      data.found.NAME = req.body.NAME,
-      data.found.PRICE_USD = req.body.PRICE_USD,
-      data.found.PRICE_EUR = req.body.PRICE_EUR,
-      data.found.IMAGEURL = req.body.IMAGEURL,
-      data.found.COMMENTS = req.body.COMMENTS,
+  // app.put('/marketsCoins/:id', (req, res) => {
+  //   if(req.body.ID === undefined ||
+  //     req.body.NAME === undefined ||
+  //     req.body.PRICE_USD === undefined ||
+  //     req.body.PRICE_EUR === undefined ||
+  //     req.body.IMAGEURL === undefined) {
+  //       return res.status(400).end();
+  //   }
+  //   readFile(data => {
+  //     const found = data.find(market => market.ID == req.params.id);
+  //     if(!found) {
+  //       return res.status(404).end();
+  //     }
+  //     //TODO test data[found]
+  //     // const userId = req.params["id"];
+  //     // data[userId] = req.body;
+  //     data.found.ID = req.body.ID,
+  //     data.found.NAME = req.body.NAME,
+  //     data.found.PRICE_USD = req.body.PRICE_USD,
+  //     data.found.PRICE_EUR = req.body.PRICE_EUR,
+  //     data.found.IMAGEURL = req.body.IMAGEURL,
+  //     data.found.COMMENTS = req.body.COMMENTS,
 
-      writeFile(JSON.stringify(data, null, 2), () => {
-        res.status(201).send(`market id:${req.params.id} updated`);
-      });
-    }, true);
-  });
+  //     writeFile(JSON.stringify(data, null, 2), () => {
+  //       res.status(201).send(`market id:${req.params.id} updated`);
+  //     });
+  //   }, true);
+  // });
   
   // CREATE
   app.post('/marketsCoins', (req, res) => {
