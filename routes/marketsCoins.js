@@ -121,9 +121,25 @@ const marketRoutes = (app, fs) => {
         return res.status(404).end();
       }
       data.splice(foundIndex, 1);
-      res.status(204).end();
+      writeFile(JSON.stringify(data, null, 2), () => {
+        res.status(204).send(`users id:${userId} removed`);
+      });
     }, true);
   });
+  // app.delete('/marketsCoins/:id', (req, res) => {
+
+  //   readFile(data => {
+
+  //       // add the new user
+  //       const userId = req.params["id"];
+  //       delete data[userId];
+
+  //       writeFile(JSON.stringify(data, null, 2), () => {
+  //           res.status(200).send(`users id:${userId} removed`);
+  //       });
+  //   },
+  //       true);
+  // });
 };
 
 module.exports = marketRoutes;
