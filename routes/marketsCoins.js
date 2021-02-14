@@ -14,16 +14,16 @@ const marketRoutes = (app, fs) => {
     });
   };
 
-  // const writeFile = (fileData, callback, filePath = dataPath, encoding = 'utf8') => {
+  const writeFile = (fileData, callback, filePath = dataPath, encoding = 'utf8') => {
 
-  //     fs.writeFile(filePath, fileData, encoding, (err) => {
-  //         if (err) {
-  //             throw err;
-  //         }
+      fs.writeFile(filePath, fileData, encoding, (err) => {
+          if (err) {
+              throw err;
+          }
 
-  //         callback();
-  //     });
-  // };
+          callback();
+      });
+  };
 
   // READ (All)
   app.get('/marketsCoins', (req, res) => {
@@ -70,9 +70,27 @@ const marketRoutes = (app, fs) => {
         "ID" : ++id,
         ...req.body
       });
-      res.status(201).end();
+      writeFile(JSON.stringify(data, null, 2), () => {
+        res.status(200).send('new market added');
+    });
     }, true);
   });
+  // app.post('/users', (req, res) => {
+
+  //   readFile(data => {
+  //       // Note: this isn't ideal for production use. 
+  //       // ideally, use something like a UUID or other GUID for a unique ID value
+  //       const newUserId = Date.now().toString();
+
+  //       // add the new user
+  //       data[newUserId.toString()] = req.body;
+
+  //       writeFile(JSON.stringify(data, null, 2), () => {
+  //           res.status(200).send('new user added');
+  //       });
+  //   },
+  //       true);
+  // });
 
   // DELETE
   app.delete('/marketsCoins/:id', (req, res) => {
